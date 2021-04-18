@@ -21,3 +21,14 @@ Sur Linux, créer/modifier le fichier `product.json` dans le dossier `~/.config/
         }
     }
     
+
+## Vim
+
+### Rechercher un motif et le remplacer partout dans le document
+
+* Chercher *text1* et remplacer partour par *TEXT2* :<br/>
+`:%s/text1/TEXT2/g`
+* Remplacer les tabulations par des retours chariots :<br/>
+`:%s/\t/\r/g`
+* Avec des motifs cherchés et réécrits modifiés. Pour cela, on groupe le(s) motif(s) puis on y fait référence dans la partie remplacement. Exemple pour les fichiers `.srt` avec par exemple un `01:57:35.667` à remplacer par `01:57:35,667`. On utilise un motif de type \d\d : \d\d\d (où \d signifie un chiffre). On groupe un motif avec `\( ... \)`. Ce qui donne : <br/>
+`:%s/\(\d\d\)\.\(\d\d\d\)/\1,\2/g`
